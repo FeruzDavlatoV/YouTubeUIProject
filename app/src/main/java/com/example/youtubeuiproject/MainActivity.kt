@@ -69,8 +69,8 @@ class MainActivity : AppCompatActivity() {
     fun getAllFeeds():ArrayList<Feed> {
         val feed:ArrayList<Feed> = ArrayList()
         feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
-        feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
         feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,getAllSubFeeds()))
+        feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
         feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
         feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
         return feed

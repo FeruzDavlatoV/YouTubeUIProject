@@ -3,9 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView11"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#808080"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="left|center_vertical"
+            android:layout_marginHorizontal="3dp"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/short_youtube"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shorts"
+                android:textSize="15sp"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#808080"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>
