@@ -1,6 +1,6 @@
 package com.example.youtubeuiproject.model
 
-class Feed(var profile:Int, var photo:Int, private var subShorts: List<ShortFeed?>?) {
+class Feed(var profile:String, var video:String, private var subShorts: List<ShortFeed?>?) {
 
     fun getSubShorts(): List<ShortFeed?>? {
         return subShorts

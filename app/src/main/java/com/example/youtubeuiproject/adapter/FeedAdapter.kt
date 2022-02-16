@@ -4,14 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.view.get
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.youtubeuiproject.R
 import com.example.youtubeuiproject.model.Feed
 import com.example.youtubeuiproject.model.ShortFeed
 import com.google.android.material.imageview.ShapeableImageView
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+
 
 class FeedAdapter(var context: Context, var items: ArrayList<Feed>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -45,25 +48,40 @@ class FeedAdapter(var context: Context, var items: ArrayList<Feed>) :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val video = items[position]
+        val videoItem = items[position]
+
+
 
         if (holder is FeedViewHolder) {
-            var iv_profile = holder.iv_profile
+            Glide.with(context).
+            load(videoItem.profile).into(holder.
+            iv_profile)
+
+
+
             var iv_video = holder.iv_video
 
-            iv_profile.setImageResource(video.profile)
-            iv_video.setImageResource(video.photo)
+            iv_video.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+
+                    youTubePlayer.loadVideo(videoItem.video, 0f)
+
+                }
+            })
+
+
         }
 
         if (holder is FeedListHolder) {
             var recyclerView :RecyclerView = holder.recyclerView
             recyclerView.setLayoutManager(GridLayoutManager(context,1,GridLayoutManager.HORIZONTAL,false))
 
-            val subShorts: List<ShortFeed?>? = video.getSubShorts()
+            val subShorts: List<ShortFeed?>? = videoItem.getSubShorts()
             refreshSubAdapter(recyclerView, subShorts as ArrayList<ShortFeed>)
 
         }
     }
+
     private fun refreshSubAdapter(recyclerView: RecyclerView, shortFeed: ArrayList<ShortFeed>) {
         val adapter: ShortFeedAdapter = ShortFeedAdapter(context, shortFeed)
         recyclerView.adapter = adapter
@@ -71,7 +89,7 @@ class FeedAdapter(var context: Context, var items: ArrayList<Feed>) :
 
     class FeedViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var iv_profile: ShapeableImageView
-        var iv_video: ImageView
+        var iv_video: YouTubePlayerView
 
         init {
             iv_profile = view.findViewById(R.id.iv_profile)

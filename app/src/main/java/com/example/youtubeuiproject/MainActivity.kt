@@ -68,21 +68,21 @@ class MainActivity : AppCompatActivity() {
 
     fun getAllFeeds():ArrayList<Feed> {
         val feed:ArrayList<Feed> = ArrayList()
-        feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
-        feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,getAllSubFeeds()))
-        feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
-        feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
-        feed.add(Feed(R.drawable.my_photo,R.drawable.youtube_1,null))
+        feed.add(Feed("https://yt3.ggpht.com/LLoRVw7onB5Bw-rSb5OXerG2Moj4S8Q56_bqs3fDu2dYZxr2EyRymHN6ybyUp9uzb4GlfMlu8A=s88-c-k-c0x00ffffff-no-rj","2aFBf7Qt6L0",null))
+        feed.add(Feed("https://yt3.ggpht.com/E81KY7SAPat3qrUuc1N7cztfr8QABJ0f3CUlOF_gQkH7cKP1K8lxaFyp8w3732goS4-pj5KhJpk=s88-c-k-c0x00ffffff-no-rj","MQIAKvjPwus",getAllSubFeeds()))
+        feed.add(Feed("https://yt3.ggpht.com/pl-pa9hLg5NS2sXUlKsvpDwoinfjlKzYb8cM0zqGVxUUBDeRbGegGZbC8QRcPj62yiFzYN70Lg=s88-c-k-c0x00ffffff-no-rj","I7P3zMCPVLQ",null))
+        feed.add(Feed("https://yt3.ggpht.com/ytc/AKedOLQ01YVhDOp8uanTDAcSLvEmHoRNzj9ONYu488UiRg=s88-c-k-c0x00ffffff-no-rj","yi0OYUMqvAw",null))
         return feed
     }
 
     fun getAllSubFeeds():ArrayList<ShortFeed> {
         val shortFeed :ArrayList<ShortFeed> = ArrayList()
-        shortFeed.add(ShortFeed(R.drawable.my_photo,"fsfesfesf","fesfddsfsdf"))
-        shortFeed.add(ShortFeed(R.drawable.my_photo,"fsfesfesf","fesfddsfsdf"))
-        shortFeed.add(ShortFeed(R.drawable.my_photo,"fsfesfesf","fesfddsfsdf"))
-        shortFeed.add(ShortFeed(R.drawable.my_photo,"fsfesfesf","fesfddsfsdf"))
-        shortFeed.add(ShortFeed(R.drawable.my_photo,"fsfesfesf","fesfddsfsdf"))
+        shortFeed.add(ShortFeed("C76Nz35RCAw","RecyclerView inside recyclerView","1,3 mln view"))
+        shortFeed.add(ShortFeed("PYGmABsIChA","Sabr tagi sariq oltin","1,2 mln view"))
+        shortFeed.add(ShortFeed("C76Nz35RCAw","c","1,3 mln view"))
+        shortFeed.add(ShortFeed("PYGmABsIChA","Sabr tagi sariq oltin","1,2 mln view"))
+        shortFeed.add(ShortFeed("C76Nz35RCAw","RecyclerView inside recyclerView ","1,3 mln view"))
+        shortFeed.add(ShortFeed("PYGmABsIChA","Sabr tagi sariq oltin","1,2 mln view"))
         return shortFeed
     }
 
